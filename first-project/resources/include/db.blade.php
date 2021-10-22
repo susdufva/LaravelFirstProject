@@ -1,6 +1,6 @@
 <?php
 
-$dsn = "mysql:host=localhost;dbname=wedslyoal";
+$dsn = "mysql:host=localhost;dbname=wedslyoal"; //Sisannas db 
 $user = "root";
 $password = "";
 
