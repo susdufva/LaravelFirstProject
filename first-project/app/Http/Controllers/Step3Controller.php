@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; 
 
-class UserController extends Controller
+class Step3Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -38,8 +39,11 @@ class UserController extends Controller
         $request->validate([            
             'name'=>'required'        
             ]);        
-        $contact = new User([            
-            'name' => $request->get('name'),            
+        $user = new User([            
+            'name' => $request->get('name'), 
+            'gender1' => $request->get('gender1'),
+            'partner_name' => $request->get('partner_name'),
+            'gender2' => $request->get('gender2'),                     
             'date' => $request->get('date'),            
             'location' => $request->get('location'),            
             'budget' => $request->get('budget')     

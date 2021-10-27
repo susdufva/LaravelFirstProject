@@ -1,0 +1,43 @@
+part 1/4 - Add your names (3p)
+
+div with 2 input fields, fields mandatory 
+and 2 selects for male/female
+button for continue
+button for cancel 
+css
+
+part 2/4 - when & where
+
+div with 2 selects, place and date (3p)
+3 buttons, next, back and cancel
+css
+
+part 3/4 - how much can we spend (2p)
+
+div with input field
+3 buttons, next, back and cancel
+css
+
+part 4/4 - spous (2p)
+
+div with input field, email
+4 buttons, invite, next, back and cancel
+css
+
+part 5 - confirmation (2p)
+div with <p>
+button, get started - redirect to wedding planning 
+css
+
+db connection - set up "wedslyoal" (1p)
+- tabel users, id + name
+- table users, datetime + where, varchar 
+- tabel users, budget, int 
+- tabel 'no table for invites for now' , relation with user will be astablished after registration 
+
+challenge - learn laravel (16p)
+
+unexpected issues (6p)
+
+total time estimated 35hours = 35p 
+

@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Couple;
 use Illuminate\Http\Request;
-use App\Models\User; 
 
-class Step2Controller extends Controller
+class CoupleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,8 @@ class Step2Controller extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('users.index', compact('users'));
+        $couples = Couple::all();
+        return view('couples.index', compact('couples'));
     }
 
     /**
@@ -25,7 +24,8 @@ class Step2Controller extends Controller
      */
     public function create()
     {
-        return view('users.step2'); 
+        return view('couples.step1'); 
+        //lägg till alla steps här
     }
 
     /**
@@ -37,21 +37,20 @@ class Step2Controller extends Controller
     public function store(Request $request)
     {
         $request->validate([            
-            'name'=>'required'        
+            'name'=>'required'       
             ]);        
-        $user = new User([            
-            'name' => $request->get('name'), 
-            'gender1' => $request->get('gender1'),
-            'partner_name' => $request->get('partner_name'),
-            'gender2' => $request->get('gender2'),                     
+        $couple = new Couple([            
+            'name' => $request->get('name'),  
+            'gender1' => $request->get('gender1'),           
+            'partner_name' => $request->get('partner_name'), 
+            'gender2' => $request->get('gender2'),           
             'date' => $request->get('date'),            
             'location' => $request->get('location'),            
-            'budget' => $request->get('budget')     
+            'budget' => $request->get('budget')                   
         ]);    
-        $user->save();        
+        $couple->save();        
         
-        return redirect('/users')->with('success', 'Contact saved!');
-    
+        return redirect('/couples')->with('success', 'Couple saved!');
     }
 
     /**
@@ -73,7 +72,8 @@ class Step2Controller extends Controller
      */
     public function edit($id)
     {
-        //
+        $couple = Couple::find($id);        
+        return view('couples.edit', compact('couple'));            
     }
 
     /**
@@ -85,7 +85,15 @@ class Step2Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([            
+            'name'=>'required'                   
+        ]);        
+        $couple = Couple::find($id);        
+        $couple->name =  $request->get('name');        $couple->gender1 = $request->get('gender1');        $couple->partner_name = $request->get('partner_name');        $couple->gender2 = $request->get('gender2');        $couple->date = $request->get('date');        
+        $couple->location = $request->get('location');     
+        $couple->budget = $request->get('budget');   
+        $couple->save();        
+        return redirect('/couples')->with('success', 'Couple updated!');    
     }
 
     /**
@@ -99,3 +107,5 @@ class Step2Controller extends Controller
         //
     }
 }
+
+
