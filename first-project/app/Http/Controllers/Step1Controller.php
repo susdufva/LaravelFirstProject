@@ -25,7 +25,7 @@ class Step1Controller extends Controller
      */
     public function create()
     {
-        return view('users.step1'); 
+        return view('users.create'); 
     }
 
     /**

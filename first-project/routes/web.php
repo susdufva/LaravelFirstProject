@@ -31,7 +31,7 @@ Route::get('/step4', function () {
 });
 Route::get('/confirm', function () {
     return view('couples.confirm');
-}); 
+});  
 
 Route::resource('contacts', 'ContactController');
 

@@ -24,7 +24,7 @@ class CoupleController extends Controller
      */
     public function create()
     {
-        return view('couples.step1'); 
+        return view('couples.create'); 
         //lägg till alla steps här
     }
 
@@ -50,7 +50,7 @@ class CoupleController extends Controller
         ]);    
         $couple->save();        
         
-        return redirect('/couples')->with('success', 'Couple saved!');
+        return redirect('/couples/step2')->with('success', 'Couple saved!');
     }
 
     /**
