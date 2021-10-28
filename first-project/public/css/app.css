@@ -154,7 +154,7 @@ select{
 .names{
     text-transform: none;
     font-size: 15px;
-    padding-top: 7px;
+    padding-top: 13px;
 }
 .cancel{
     text-decoration: none;
@@ -177,4 +177,42 @@ select{
     font-style: normal;
     line-height: normal;
     color: #333333;
+}
+
+/* step2 */
+.input3{
+    width: 30%;
+    position: absolute;
+    left: 16%;
+    top: 50%;
+}
+.input4{
+    width: 30%;
+    position: absolute;
+    right: 18%;
+    top: 50%;
+    padding: 5px;
+}
+.label3{
+    position: absolute;
+    top:46%;
+    left: 17%;
+}
+.label4{
+    position: absolute;
+    top: 46%;
+    right: 34%;
+}
+#a{
+    position: absolute;
+    left: 40%;
+}
+#b{
+    position: absolute;
+    left: 49%;
+    bottom: 4%;
+}
+#c{
+    position: absolute;
+    left: 53%;
 }
