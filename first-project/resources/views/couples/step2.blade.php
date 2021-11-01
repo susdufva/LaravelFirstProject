@@ -24,21 +24,21 @@
             <form method="post" action="{{ route('couples.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label class="label3" for="location">Somewhere around here</label>
+                    <label class="label3" for="location">Location</label>
                     <input type="search" class="input3" name="location"/>
                 </div>
           
                 <div class="form-group">
-                    <label class="label4" for="date">Probably on this date</label>
+                    <label class="label4" for="date">Date</label>
                     <input type="date" class="input4" name="date"/>
                 </div>
         
                 <div class="span"> 
-                    <p class="change"> These details are easily changed in settings.</p>
+                    <p class="change"> These details are easily changed in settings</p>
                 </div>
                 <button type="submit" class="btn">Next</button>
                 <div class="">
-                    <a href="step3" class="cancel" id="a">Back</a>
+                    <a href="couples/create" class="cancel" id="a">Back</a>
                     <p class="cancel" id="b"> | </p>
                     <a href="#" class="cancel" id="c">Cancel</a>
                 </div>

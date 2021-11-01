@@ -9,7 +9,7 @@
             <h1 class="display">Add your names</h1>
         </div>
         <div class="span"> 
-            <p class="names"> Soon one of you might change your last name. For now, your first </br> names will do. </p>
+            <p class="names"> Soon one of you might change your last name. For now, your first names will do. </p>
         </div>
         <div>
             @if($errors->any())
@@ -24,7 +24,7 @@
             <form method="post" action="{{ route('couples.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label class="label1" for="name">My Name*</label>
+                    <label class="label1" for="name">My name*</label>
                     <input type="text" class="input1" name="name"/>
                 </div>
                 <div class="form-group">
@@ -34,7 +34,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="label2" for="partner_name">My Partner's Name*</label>
+                    <label class="label2" for="partner_name">My partner's name*</label>
                     <input type="text" class="input2" name="partner_name"/>
                 </div>
                 <div class="form-group">
@@ -44,10 +44,10 @@
                     </select>
                 </div>
                 <div class="span"> 
-                    <p class="change"> These details are easily changed in settings.</p>
+                    <p class="change"> These details are easily changed in settings</p>
                 </div>
                 <button type="submit" class="btn">Continue</button>
-                <a href="#" class="cancel">Cancel  X</a>
+                <a href="#" class="cancel">Cancel</a>
             </form>
         </div>
     </div>

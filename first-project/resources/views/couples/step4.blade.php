@@ -1,8 +1,16 @@
 @extends('base')
 @section('main')
 <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Add a contact</h1>
+    <div class="col">
+        <div class="step">
+            <p class="step1">Step 4/4 </p> 
+        </div>
+        <div class="h1"> 
+            <h1 class="display">Spouse</h1>
+        </div>
+        <div class="span"> 
+            <p class="names"> First add your partner, then you can add others to help you, like trusted friends</p>
+        </div>
         <div>
             @if($errors->any())
             <div class="alert alert-danger">
@@ -13,33 +21,28 @@
                 </ul>
             </div><br/>
             @endif
-            <form method="post" action="{{ route('couples.store') }}">
+            <form method="post" action="{{ route('couples.store')}}">
                 @csrf
                 <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" name="first_name"/>
+                    <label class="label3" for="budget">Partner Email</label>
+                    <input type="text" class="input6" name="email"/>
                 </div>
-                <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" name="last_name"/>
+                <div>
+                    <button type="submit" class="invite">invite </button>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" name="email"/>
+            </form>
+            <form method="post" action="{{ route('couples.store') }}">
+                @csrf
+                <div class="span"> 
+                    <p class="change"> These details are easily changed in settings</p>
                 </div>
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" class="form-control" name="city"/>
+                <button type="submit" class="btn">confirm your registration</button>
+                <div class="">
+                    <a href="step3" class="cancel" id="a">Back</a>
+                    <p class="cancel" id="b"> | </p>
+                    <a href="#" class="cancel" id="c">Cancel</a>
                 </div>
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <input type="text" class="form-control" name="country"/>
-                </div>
-                <div class="form-group">
-                    <label for="job_title">Job Title</label>
-                    <input type="text" class="form-control" name="job_title"/>
-                </div>
-                <button type="submit" class="btn btn-primary-outline">Add Contact</button>
+                
             </form>
         </div>
     </div>

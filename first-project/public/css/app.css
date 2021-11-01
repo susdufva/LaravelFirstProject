@@ -14,9 +14,7 @@ body{
     top: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgb(73, 73, 73);
-    opacity: 0.607843;
-    z-index: 1002;
+    background-color: rgba(73, 73, 73, 0.5);
 }
 
 .row{
@@ -30,11 +28,12 @@ body{
     vertical-align: none;
     text-align: center;
     text-transform: none;
+    z-index: 2;
 }
-select, .col, input, .btn{
+select, .col, input, .btn, .invite{
     border-width: 0px;
     background: inherit;
-    border-radius: 5px;
+    border-radius: 3px;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -47,6 +46,7 @@ select, .col, input, .btn{
     height: 550px;
     background-color: rgba(255, 255, 255, 1);
     border: none;
+    z-index: 3;
 }
 
 input{
@@ -56,7 +56,7 @@ input{
     box-sizing: border-box;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(121, 121, 121, 1);
+    border-color: rgba(187, 187, 187, 0.747);
 }
 .input1{
     position: absolute;
@@ -75,8 +75,9 @@ select{
     box-sizing: border-box;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(121, 121, 121, 1);
+    border-color: rgba(187, 187, 187, 0.747);
     padding-left: 25px;
+    color: #333333;
 }
 
 .select1{
@@ -93,7 +94,7 @@ select{
 }
 
 .btn{
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #a99163;
     border: none;
     position: absolute;
     left: 16%;
@@ -103,8 +104,10 @@ select{
     word-wrap: break-word;
     text-transform: uppercase;
     font-size: 16px;
-    color: #FBF8F8;
+    color: white;
     text-align: center;
+    font-weight: 500;
+    letter-spacing: 1.5px;
 }
 .label1{
     position: absolute;
@@ -121,10 +124,11 @@ select{
 .change{
     position: absolute;
     bottom: 23%;
-    left: 33%;
-    font-size: 15px;
+    left: 33.5%;
+    font-size: 14px;
     color: #A19E9E;
     text-align: center;
+    letter-spacing: 0.4px;
 }
 .step1{
     font-family: 'Georgia', sans-serif;
@@ -137,7 +141,7 @@ select{
     position: relative;
     text-transform: none;
     font-family: 'Georgia', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
     font-size: 35px;
     color: #333333;
@@ -145,10 +149,10 @@ select{
 .display::after{
     content: "";
     height: 0.7px;
-    width: 32%;
+    width: 29.5%;
     background-color: #333333;
     position: absolute;
-    left: 33%;
+    left: 35%;
     bottom: -30%;
 }
 .names{
@@ -158,10 +162,10 @@ select{
 }
 .cancel{
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 17px;
     position: absolute;
-    left: 44.5%;
+    left: 46%;
     bottom: 7%;
 }
 .cancel, .names, .display, .step1{
@@ -184,13 +188,13 @@ select{
     width: 30%;
     position: absolute;
     left: 16%;
-    top: 50%;
+    top: 49%;
 }
 .input4{
     width: 30%;
     position: absolute;
     right: 18%;
-    top: 50%;
+    top: 49%;
     padding: 5px;
 }
 .label3{
@@ -201,11 +205,11 @@ select{
 .label4{
     position: absolute;
     top: 46%;
-    right: 34%;
+    right: 44%;
 }
 #a{
     position: absolute;
-    left: 40%;
+    left: 35%;
 }
 #b{
     position: absolute;
@@ -214,5 +218,33 @@ select{
 }
 #c{
     position: absolute;
-    left: 53%;
+    left: 58%;
+}
+/* step3 */
+.input5{
+    width: 65%;
+    position: absolute;
+    left: 16%;
+    top: 49%;
+}
+/* step4 */
+.input6{
+    width: 47%;
+    position: absolute;
+    left: 16%;
+    top: 49%;
+}
+.invite{
+    position: absolute;
+    width: 16%;
+    top: 49%;
+    right: 18.5%;
+    height: 45px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    background-color: black;
 }

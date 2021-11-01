@@ -1,8 +1,16 @@
 @extends('base')
 @section('main')
 <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Add a contact</h1>
+    <div class="col">
+        <div class="step">
+            <p class="step1">Step 3/4 </p> 
+        </div>
+        <div class="h1"> 
+            <h1 class="display">How much can we spend?</h1>
+        </div>
+        <div class="span"> 
+            <p class="names"> There is no limit to what a wedding may or can cost. Regeradless of your estimated budget</br> we are glad to help you make your dream-wedding come true. </p>
+        </div>
         <div>
             @if($errors->any())
             <div class="alert alert-danger">
@@ -16,30 +24,20 @@
             <form method="post" action="{{ route('couples.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" name="first_name"/>
+                    <label class="label3" for="budget">Estimated Budget</label>
+                    <input type="text" class="input5" name="budget"/>
                 </div>
-                <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" name="last_name"/>
+        
+                <div class="span"> 
+                    <p class="change"> These details are easily changed in settings</p>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" name="email"/>
+                <button type="submit" class="btn">Just one more step</button>
+                <div class="">
+                    <a href="step2" class="cancel" id="a">Back</a>
+                    <p class="cancel" id="b"> | </p>
+                    <a href="#" class="cancel" id="c">Cancel</a>
                 </div>
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" class="form-control" name="city"/>
-                </div>
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <input type="text" class="form-control" name="country"/>
-                </div>
-                <div class="form-group">
-                    <label for="job_title">Job Title</label>
-                    <input type="text" class="form-control" name="job_title"/>
-                </div>
-                <button type="submit" class="btn btn-primary-outline">Add Contact</button>
+                
             </form>
         </div>
     </div>
