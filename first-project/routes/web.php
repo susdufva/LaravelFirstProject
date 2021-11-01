@@ -34,6 +34,6 @@ Route::get('/confirm', function () {
 });  
 
 Route::resource('contacts', 'ContactController');
-
+Route::resource('invites', 'InviteController');
 Route::resource('couples', 'CoupleController');
 

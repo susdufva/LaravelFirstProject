@@ -1,23 +1,35 @@
-<?php
-    include("../include/db.php");
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedsly</title>
-    <link href="../css/homepage.css" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Lobster&display=swap" rel="stylesheet">
-</head>
-<body>
-    <main>
-        <div>
-            <div>
-            </div>  
+@extends('base')
+@section('main')
+<div class="row">
+    <div class="col">
+        <div class="step">
+            <p class="step1"> </p> 
         </div>
-    </main>
-</body>
-</html>
+        <div class="h1"> 
+            <h1 class="display">Congratulations</h1>
+        </div>
+        <div class="span"> 
+            <p class="confirm"> With Wedsly you get complete control over everything, from now until your big day. </br> Wedding planning is something joyful that can be shared with your </br> future spouse and with family and friends </br> - </br> Your friends at Wedsly</p>
+        </div>
+        <div>
+            <img class="logo" src="img/wedsly.JPG"> </img>
+        </div>
+        <div>
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+            </div><br/>
+            @endif
+            
+            <div>
+                <a href="#" class="btn">Start planning </a>
+            </div>
+           
+        </div>
+    </div>
+</div>
+@endsection
