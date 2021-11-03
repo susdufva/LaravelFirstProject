@@ -24,7 +24,7 @@
             <form method="post" action="{{ route('invites.store')}}">
                 @csrf
                 <div class="form-group">
-                    <label class="label3" for="budget">Partner Email</label>
+                    <label class="label4" for="budget">Partner Email</label>
                     <input type="text" class="input6" name="email"/>
                 </div>
                 <div>
@@ -35,11 +35,11 @@
                 <div class="span"> 
                     <p class="change"> These details are easily changed in settings</p>
                 </div>
-                <a href="couples/confirm" class="btn">confirm your registration</a>
+                <a href="/confirm" class="btn">confirm your registration</a>
                 <div class="">
-                    <a href="couples/step3" class="cancel" id="a">Back</a>
+                    <a href="/step3" class="cancel" id="a">Back</a>
                     <p class="cancel" id="b"> | </p>
-                    <a href="#" class="cancel" id="c">Cancel</a>
+                    <a href="http://www.wedsly.se" class="cancel" id="c">Cancel</a>
                 </div>
                 
             </form>

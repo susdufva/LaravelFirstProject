@@ -24,7 +24,7 @@
             <form method="post" action="{{ route('couples.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label class="label3" for="budget">Estimated Budget</label>
+                    <label class="label4" for="budget">Estimated Budget</label>
                     <input type="text" class="input5" name="budget"/>
                 </div>
         
@@ -35,7 +35,7 @@
                 <div class="">
                     <a href="step2" class="cancel" id="a">Back</a>
                     <p class="cancel" id="b"> | </p>
-                    <a href="#" class="cancel" id="c">Cancel</a>
+                    <a href="http://www.wedsly.se" class="cancel" id="c">Cancel</a>
                 </div>
                 
             </form>

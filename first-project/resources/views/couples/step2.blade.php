@@ -6,7 +6,7 @@
             <p class="step1">Step 2/4 </p> 
         </div>
         <div class="h1"> 
-            <h1 class="display">When & where</h1>
+            <h1 class="display">When & Where</h1>
         </div>
         <div class="span"> 
             <p class="names"> A joyous wedding starts with really great planning. We are happy to help</br> you get there. </p>
@@ -25,9 +25,9 @@
                 @csrf
                 <div class="form-group">
                     <label class="label3" for="location">Location</label>
-                    <input type="search" class="input3" name="location"/>
+                    <select id="countries" name="location" class="input3"></select>
                 </div>
-          
+                
                 <div class="form-group">
                     <label class="label4" for="date">Date</label>
                     <input type="date" class="input4" name="date"/>
@@ -40,11 +40,15 @@
                 <div class="">
                     <a href="couples/create" class="cancel" id="a">Back</a>
                     <p class="cancel" id="b"> | </p>
-                    <a href="#" class="cancel" id="c">Cancel</a>
+                    <a href="http://www.wedsly.se" class="cancel" id="c">Cancel</a>
                 </div>
                 
             </form>
         </div>
     </div>
+    
 </div>
 @endsection
+@section('app')
+    <script src="js/app.js"><script>
+@stop

@@ -26,7 +26,7 @@
             @endif
             
             <div>
-                <a href="#" class="btn">Start planning </a>
+                <a href="http://www.wedsly.se" class="btn">Start planning </a>
             </div>
            
         </div>

@@ -32,7 +32,12 @@ Route::get('/step4', function () {
 Route::get('/confirm', function () {
     return view('couples.confirm');
 });  
-
+Route::put('/step2', function () {
+    return view('couples.step2');
+});
+Route::post('/step2', function () {
+    return view('couples.step2');
+});
 Route::resource('contacts', 'ContactController');
 Route::resource('invites', 'InviteController');
 Route::resource('couples', 'CoupleController');

@@ -47,7 +47,7 @@
                     <p class="change"> These details are easily changed in settings</p>
                 </div>
                 <button type="submit" class="btn">Continue</button>
-                <a href="#" class="cancel">Cancel</a>
+                <a href="http://www.wedsly.se" class="cancel">Cancel</a>
             </form>
         </div>
     </div>
