@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\RegisterController; 
+use App\Http\Controllers\CoupleController; 
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/step1', function () {
-    return view('couples.step1');
+    return view('couples.create');
 });
 Route::get('/step2', function () {
     return view('couples.step2');
@@ -27,18 +27,18 @@ Route::get('/step3', function () {
     return view('couples.step3');
 });
 Route::get('/step4', function () {
-    return view('couples.step4');
+    return view('invites.create');
 });
+Route::get('/edit', function () {
+    return view('couples.edit');
+});
+
 Route::get('/confirm', function () {
     return view('couples.confirm');
 });  
-Route::put('/step2', function () {
-    return view('couples.step2');
-});
-Route::post('/step2', function () {
-    return view('couples.step2');
-});
+
 Route::resource('contacts', 'ContactController');
 Route::resource('invites', 'InviteController');
-Route::resource('couples', 'CoupleController');
+Route::resource('couples', CoupleController::class);
 
+//Route::put('/couples/{id}', [CoupleController::class, 'update']);

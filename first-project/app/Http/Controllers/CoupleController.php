@@ -13,8 +13,13 @@ class CoupleController extends Controller
      */
     public function index()
     {
-        $couples = Couple::all();
-        return view('couples.index', compact('couples'));
+        $couples = Couple::latest()->paginate(5);
+
+        return view('couples.index', compact('couples'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    
+    //    $couples = Couple::all();
+      //  return view('couples.index', compact('couples'));
     }
 
     /**
@@ -25,8 +30,8 @@ class CoupleController extends Controller
     public function create()
     {
         return view('couples.create'); 
-        return view('couples.step2');
-        return view('couples.step3');
+        //return view('couples.step2');
+        //return view('couples.step3');
     }
 
     /**
@@ -51,7 +56,11 @@ class CoupleController extends Controller
         ]);    
         $couple->save();        
         
-        return redirect('/step2')->with('success', 'Couple saved!');
+        Couple::create($request->all());
+   
+        return redirect()->route('/step2')
+                        ->with('success','Product created successfully.');
+        //return redirect('/step2')->with('success', 'Couple saved!');
     }
 
     /**
@@ -71,9 +80,9 @@ class CoupleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Couple $couple)
     {
-        $couple = Couple::find($id);        
+        //$couple = Couple::find($id);        
         return view('couples.edit', compact('couple'));            
     }
 
@@ -84,17 +93,22 @@ class CoupleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Couple $couple)
     {
         $request->validate([            
             'name'=>'required'                   
         ]);        
-        $couple = Couple::find($id);        
-        $couple->name =  $request->get('name');        $couple->gender1 = $request->get('gender1');        $couple->partner_name = $request->get('partner_name');        $couple->gender2 = $request->get('gender2');        $couple->date = $request->get('date');        
+        $couple = Couple::find($couple->id);        
+        $couple->name =  $request->get('name');        $couple->gender1 = $request->get('gender1');        $couple->partner_name = $request->get('partner_name');   $couple->gender2 = $request->get('gender2');        $couple->date = $request->get('date');        
         $couple->location = $request->get('location');     
         $couple->budget = $request->get('budget');   
         $couple->save();        
-        return redirect('/couples')->with('success', 'Couple updated!');    
+
+        $couple->update($request->all());
+  
+        return redirect()->route('couple.index')
+                        ->with('success','Product updated successfully');
+        //return redirect('/step3')->with('success', 'Couple updated!');    
     }
 
     /**

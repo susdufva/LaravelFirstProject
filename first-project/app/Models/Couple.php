@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Couple extends Model
 {
     use HasFactory;
+
+    protected $table = 'couples';
+    public $timestamps = false;
+
     protected $fillable = [        
         'name',
         'gender1', 

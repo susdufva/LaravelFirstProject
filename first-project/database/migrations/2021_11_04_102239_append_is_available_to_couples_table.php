@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCouplesTable extends Migration
+class AppendIsAvailableToCouplesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateCouplesTable extends Migration
      */
     public function up()
     {
-        Schema::create('couples', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('name');
-            $table->string('gender1');
-            $table->string('partner_name');
-            $table->string('gender2');
+        Schema::table('couples', function (Blueprint $table) {
+            $table->string('date')->nullable();
+            $table->string('location')->nullable();
+            $table->string('budget')->nullable();
         });
     }
 
@@ -30,6 +27,8 @@ class CreateCouplesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('couples');
+        Schema::table('couples', function (Blueprint $table) {
+            //
+        });
     }
 }

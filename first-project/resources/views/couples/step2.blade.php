@@ -20,12 +20,12 @@
                 @endforeach
                 </ul>
             </div><br/>
-            @endif
-            <form method="post" action="{{ route('couples.store') }}">
+            @endif  
+            <form method="post" action="{{ route('couples.update', $couple->id) }}">
                 @csrf
                 <div class="form-group">
                     <label class="label3" for="location">Location</label>
-                    <select id="countries" name="location" class="input3"></select>
+                    <select id="countries" name="location"  class="input3"></select>
                 </div>
                 
                 <div class="form-group">

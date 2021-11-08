@@ -25,7 +25,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="label1" for="name">My name*</label>
-                    <input type="text" class="input1" name="name"/>
+                    <input type="text" class="input1" name="name" required/>
                 </div>
                 <div class="form-group">
                     <select class="select1" name="gender1" id="gender1">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label class="label2" for="partner_name">My partner's name*</label>
-                    <input type="text" class="input2" name="partner_name"/>
+                    <input type="text" class="input2" name="partner_name" required/>
                 </div>
                 <div class="form-group">
                     <select class="select2" name="gender2" id="gender2">
