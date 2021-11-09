@@ -21,7 +21,7 @@
                 </ul>
             </div><br/>
             @endif  
-            <form method="post" action="{{ route('couples.update', $couple->id) }}">
+            <form method="post" action="{{ route('couples.create.step.two.post') }}">
                 @csrf
                 <div class="form-group">
                     <label class="label3" for="location">Location</label>

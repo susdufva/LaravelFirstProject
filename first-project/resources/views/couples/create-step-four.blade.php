@@ -21,7 +21,7 @@
                 </ul>
             </div><br/>
             @endif
-            <form method="post" action="{{ route('couples.store')}}">
+            <form method="post" action="{{ route('invites.store')}}">
                 @csrf
                 <div class="form-group">
                     <label class="label3" for="budget">Partner Email</label>
@@ -31,7 +31,7 @@
                     <button type="submit" class="invite">invite </button>
                 </div>
             </form>
-            <form method="post" action="{{ route('couples.store') }}">
+            <form method="post" action="{{ route('couples.create.step.four.post') }}">
                 @csrf
                 <div class="span"> 
                     <p class="change"> These details are easily changed in settings</p>

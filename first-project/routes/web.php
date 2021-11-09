@@ -17,15 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/step1', function () {
-    return view('couples.create');
-});
-Route::get('/step2', function () {
-    return view('couples.step2');
-});
-Route::get('/step3', function () {
-    return view('couples.step3');
-});
+
+Route::get('/create-step-one', 'CoupleController@createStepOne')->name('couples.create.step.one');
+Route::post('/create-step-one', 'CoupleController@postCreateStepOne')->name('couples.create.step.one.post');
+
+Route::get('/create-step-two', 'CoupleController@createStepTwo')->name('create.step.two');
+Route::post('/create-step-two', 'CoupleController@postCreateStepTwo')->name('couples.create.step.two.post');
+
+Route::get('/create-step-three', 'CoupleController@createStepThree')->name('create.step.three');
+Route::post('/create-step-three', 'CoupleController@postCreateStepThree')->name('couples.create.step.three.post');
+
+Route::get('/create-step-four', 'CoupleController@createStepFour')->name('create.step.four');
+Route::post('/create-step-four', 'CoupleController@postCreateStepFour')->name('couples.create.step.four.post');
+
 Route::get('/step4', function () {
     return view('invites.create');
 });
@@ -39,6 +43,6 @@ Route::get('/confirm', function () {
 
 Route::resource('contacts', 'ContactController');
 Route::resource('invites', 'InviteController');
-Route::resource('couples', CoupleController::class);
+Route::resource('couples', 'CoupleController');
 
 //Route::put('/couples/{id}', [CoupleController::class, 'update']);

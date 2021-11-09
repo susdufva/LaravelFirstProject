@@ -12,14 +12,9 @@ class CoupleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $couples = Couple::latest()->paginate(5);
-
-        return view('couples.index', compact('couples'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-    
-    //    $couples = Couple::all();
-      //  return view('couples.index', compact('couples'));
+    {    
+        $couples = Couple::all();
+        return view('couples.index', compact('couples'));
     }
 
     /**
@@ -27,11 +22,11 @@ class CoupleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createStepOne(Request $request)
     {
-        return view('couples.create'); 
-        //return view('couples.step2');
-        //return view('couples.step3');
+        $couple = $request->session()->get('couple');
+        return view('couples.create-step-one', compact('couple')); 
+       
     }
 
     /**
@@ -40,28 +35,113 @@ class CoupleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postCreateStepOne(Request $request)
     {
-        $request->validate([            
-            'name'=>'required'       
-            ]);        
-        $couple = new Couple([            
-            'name' => $request->get('name'),  
-            'gender1' => $request->get('gender1'),           
-            'partner_name' => $request->get('partner_name'), 
-            'gender2' => $request->get('gender2'),           
-            'date' => $request->get('date'),            
-            'location' => $request->get('location'),            
-            'budget' => $request->get('budget')                   
-        ]);    
-        $couple->save();        
+        $validatedData = $request->validate([
+            'name' => 'required',  
+            'gender1' => 'required',           
+            'partner_name' => 'required', 
+            'gender2' => 'required',     
+        ]);
+  
+        if(empty($request->session()->get('couple'))){
+            $couple = new Couple();
+            $couple->fill($validatedData);
+            $request->session()->put('couple', $couple);
+        }else{
+            $couple = $request->session()->get('couple');
+            $couple->fill($validatedData);
+            $request->session()->put('couple', $couple);
+        }
+  
+        return redirect()->route('create.step.two');
         
-        Couple::create($request->all());
-   
-        return redirect()->route('/step2')
-                        ->with('success','Product created successfully.');
-        //return redirect('/step2')->with('success', 'Couple saved!');
     }
+    /**
+     * Show the step One Form for creating a new product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function createStepTwo(Request $request)
+    {
+        $couple = $request->session()->get('couple');
+        return view('couples.create-step-two', compact('couple')); 
+       
+    }
+
+    /**
+     * Show the step One Form for creating a new product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function postCreateStepTwo(Request $request)
+    {
+        $validatedData = $request->validate([
+            //'location' ,
+            'date' => 'required',
+            
+        ]);
+  
+        $couple = $request->session()->get('couple');
+        $couple->fill($validatedData);
+        $request->session()->put('couple', $couple);
+  
+        return redirect()->route('create.step.three');
+    }
+    /**
+     * Show the step One Form for creating a new product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createStepThree(Request $request)
+    {
+        $couple = $request->session()->get('couple');
+  
+        return view('couples.create-step-three',compact('couple'));
+    }
+  
+    public function postCreateStepThree(Request $request)
+    {
+        $validatedData = $request->validate([
+            'budget' => 'required',
+            
+        ]);
+  
+        $couple = $request->session()->get('couple');
+        $couple->fill($validatedData);
+        $request->session()->put('couple', $couple);
+  
+        return redirect()->route('create.step.four');
+    }
+    /**
+     * Show the step One Form for creating a new product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createStepFour(Request $request)
+    {
+        $couple = $request->session()->get('couple');
+  
+        return view('couples.create-step-four',compact('couple'));
+    }
+    /**
+     * Show the step One Form for creating a new product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function postCreateStepFour(Request $request)
+    {
+        
+        $couple = $request->session()->get('couple');
+        $couple->save();
+  
+        $request->session()->forget('couple');
+  
+        return redirect()->route('/confirm');
+    }
+
 
     /**
      * Display the specified resource.
@@ -80,9 +160,9 @@ class CoupleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Couple $couple)
+    public function edit($id)
     {
-        //$couple = Couple::find($id);        
+        $couple = Couple::find($id);        
         return view('couples.edit', compact('couple'));            
     }
 
@@ -93,7 +173,7 @@ class CoupleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Couple $couple)
+    public function update(Request $request, $id)
     {
         $request->validate([            
             'name'=>'required'                   
@@ -104,11 +184,11 @@ class CoupleController extends Controller
         $couple->budget = $request->get('budget');   
         $couple->save();        
 
-        $couple->update($request->all());
+        //$couple->update($request->all());
   
-        return redirect()->route('couple.index')
-                        ->with('success','Product updated successfully');
-        //return redirect('/step3')->with('success', 'Couple updated!');    
+        //return redirect()->route('/step3')
+         //               ->with('success','Product updated successfully');
+        return redirect('/step3')->with('success', 'Couple updated!');    
     }
 
     /**
