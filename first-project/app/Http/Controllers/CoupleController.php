@@ -79,7 +79,7 @@ class CoupleController extends Controller
     public function postCreateStepTwo(Request $request)
     {
         $validatedData = $request->validate([
-            //'location' ,
+            'location' => 'required',
             'date' => 'required',
             
         ]);
