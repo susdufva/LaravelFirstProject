@@ -48,6 +48,7 @@ class CoupleController extends Controller
             $couple = new Couple();
             $couple->fill($validatedData);
             $request->session()->put('couple', $couple);
+            $couple->save();
         }else{
             $couple = $request->session()->get('couple');
             $couple->fill($validatedData);
@@ -139,9 +140,20 @@ class CoupleController extends Controller
   
         $request->session()->forget('couple');
   
-        return redirect()->route('/confirm');
+        return redirect()->route('create.confirm');
     }
-
+    /**
+     * Show the step One Form for creating a new product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createConfirm(Request $request)
+    {
+        $couple = $request->session()->get('couple');
+  
+        return view('couples.create-confirm',compact('couple'));
+    }
+ 
 
     /**
      * Display the specified resource.
