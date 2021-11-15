@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Invite;
+use App\Models\Couple;
 use Illuminate\Http\Request;
 
 class InviteController extends Controller
@@ -33,18 +34,37 @@ class InviteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $request->validate([            
-            'email'=>'required'       
-            ]);        
-        $invite = new Invite([            
-            'email' => $request->get('email'),  
-            'user_id' => $request->get('user_id')             
-        ]);    
-        $invite->save();        
-        
-        return redirect('/invites/create')->with('success', 'Couple saved!');
+    //public function store(Request $request)
+    //{
+        //$couple = DB::table('couple')->get('id');
+        public function postCreateInvite(Request $request){
+
+            $couple = $request->session()->get('couple');
+            $user_id = $couple->couple_id = $couple->id;
+            
+            $request->validate([            
+                'email'=>'required'       
+                ]);        
+            $invite = new Invite([            
+                'email' => $request->get('email'),  
+                'user_id' => $user_id       
+            ]);    
+            $invite->save();        
+            
+            
+            /*   $validatedData = $request->validate([
+                'email' => 'required',      
+            ]);
+            
+            if(empty($request->session()->get('couple'))){
+                $couple = new Couple();
+                $couple->fill($validatedData);
+                $request->session()->put('couple', $couple);
+                $couple->save();
+            } */
+            
+            return redirect()->route('create.step.four');
+            
     }
 
     /**

@@ -48,3 +48,29 @@
 
     **foreign key
     $couple->couple_id = $couple->id;
+
+    public function postCreateInvite(Request $request){
+
+$request->validate([            
+    'email'=>'required'       
+    ]);        
+$invite = new Invite([            
+    'email' => $request->get('email'),  
+    'user_id' => $couple->couple_id = $couple->id          
+]);    
+$invite->save();        
+
+
+/*   $validatedData = $request->validate([
+    'email' => 'required',      
+]);
+
+if(empty($request->session()->get('couple'))){
+    $couple = new Couple();
+    $couple->fill($validatedData);
+    $request->session()->put('couple', $couple);
+    $couple->save();
+} */
+
+//return redirect()->route('create.step.four');
+}
