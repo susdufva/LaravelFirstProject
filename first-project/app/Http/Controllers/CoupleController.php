@@ -113,7 +113,7 @@ class CoupleController extends Controller
         $couple = $request->session()->get('couple');
         $couple->fill($validatedData);
         $request->session()->put('couple', $couple);
-  
+      
         return redirect()->route('create.step.four');
     }
     /**
@@ -138,7 +138,6 @@ class CoupleController extends Controller
         
         $couple = $request->session()->get('couple');
         $couple->save();
-  
         $request->session()->forget('couple');
   
         return redirect()->route('create.confirm');

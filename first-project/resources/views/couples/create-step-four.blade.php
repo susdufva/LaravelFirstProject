@@ -21,7 +21,8 @@
                 </ul>
             </div><br/>
             @endif
-            <form method="post" action="{{ route('invites.create.invite.post')}}">
+            <!-- 'invites.create.invite.post' -->
+            <form method="post" action="{{ route('invites.store')}}">
                 @csrf
                 <div class="form-group">
                     <label class="label3" for="budget">Partner Email</label>

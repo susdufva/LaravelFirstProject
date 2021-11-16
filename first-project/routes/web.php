@@ -30,7 +30,7 @@ Route::post('/create-step-three', 'CoupleController@postCreateStepThree')->name(
 Route::get('/create-step-four', 'CoupleController@createStepFour')->name('create.step.four');
 Route::post('/create-step-four', 'CoupleController@postCreateStepFour')->name('couples.create.step.four.post');
 
-Route::post('/create-invite', 'InviteController@postCreateInvite')->name('invites.create.invite.post');
+//Route::post('/create-invite', 'InviteController@postCreateInvite')->name('invites.create.invite.post');
 
 Route::get('/create-confirm', 'CoupleController@createConfirm')->name('create.confirm');
 

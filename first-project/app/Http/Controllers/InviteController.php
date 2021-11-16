@@ -34,10 +34,32 @@ class InviteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function store(Request $request)    {        
+        //$couple = $request->session()->get('couple');
+        //$user_id = $couple->id;
+        //$couple = Couple::find($couple->id);
+        
+        $request->validate([            
+            'email'=>'required'       
+            ]);        
+        $invite = new Invite([            
+            'email' => $request->get('email'),  
+            'user_id' => $user_id       
+        ]);    
+        $invite->save();   
+        return redirect()->route('create.step.four');     
+       
+    }   
+     /**     * Display the specified resource.     *     
+      * 
+      * @param  int  $id     
+      * @return \Illuminate\Http\Response    
+      * 
+     */    
     //public function store(Request $request)
     //{
         //$couple = DB::table('couple')->get('id');
-        public function postCreateInvite(Request $request){
+        /* public function postCreateInvite(Request $request){
 
             $couple = $request->session()->get('couple');
             $user_id = $couple->couple_id = $couple->id;
@@ -50,7 +72,7 @@ class InviteController extends Controller
                 'user_id' => $user_id       
             ]);    
             $invite->save();        
-            
+             */
             
             /*   $validatedData = $request->validate([
                 'email' => 'required',      
@@ -63,9 +85,9 @@ class InviteController extends Controller
                 $couple->save();
             } */
             
-            return redirect()->route('create.step.four');
+            //return redirect()->route('create.step.four');
             
-    }
+    //}
 
     /**
      * Display the specified resource.
