@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Invite;
-use App\Models\Couple;
+use App\Models\Couple; /*Import to use couple->id as foreign key  */
 use Illuminate\Http\Request;
 
 class InviteController extends Controller
@@ -37,7 +37,6 @@ class InviteController extends Controller
     public function store(Request $request)    {        
         $couple = $request->session()->get('couple');
         $user_id = $couple->id;
-        //$couple = Couple::find($couple->id);
         
         $request->validate([            
             'email'=>'required'       
@@ -49,45 +48,7 @@ class InviteController extends Controller
         $invite->save();   
         return redirect()->route('create.step.four');     
        
-    }   
-     /**     * Display the specified resource.     *     
-      * 
-      * @param  int  $id     
-      * @return \Illuminate\Http\Response    
-      * 
-     */    
-    //public function store(Request $request)
-    //{
-        //$couple = DB::table('couple')->get('id');
-        /* public function postCreateInvite(Request $request){
-
-            $couple = $request->session()->get('couple');
-            $user_id = $couple->couple_id = $couple->id;
-            
-            $request->validate([            
-                'email'=>'required'       
-                ]);        
-            $invite = new Invite([            
-                'email' => $request->get('email'),  
-                'user_id' => $user_id       
-            ]);    
-            $invite->save();        
-             */
-            
-            /*   $validatedData = $request->validate([
-                'email' => 'required',      
-            ]);
-            
-            if(empty($request->session()->get('couple'))){
-                $couple = new Couple();
-                $couple->fill($validatedData);
-                $request->session()->put('couple', $couple);
-                $couple->save();
-            } */
-            
-            //return redirect()->route('create.step.four');
-            
-    //}
+    }     
 
     /**
      * Display the specified resource.

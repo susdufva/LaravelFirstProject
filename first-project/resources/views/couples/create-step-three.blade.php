@@ -24,7 +24,7 @@
             <form method="post" action="{{ route('couples.create.step.three.post') }}">
                 @csrf
                 <div class="form-group">
-                    <label class="label4" for="budget">Estimated Budget</label>
+                    <label class="label5" for="budget">Estimated Budget</label>
                     <input type="text" class="input5" name="budget"/>
                 </div>
         

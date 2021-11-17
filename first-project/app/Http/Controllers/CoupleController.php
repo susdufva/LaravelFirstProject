@@ -48,7 +48,7 @@ class CoupleController extends Controller
             $couple = new Couple();
             $couple->fill($validatedData);
             $request->session()->put('couple', $couple);
-            $couple->save();
+            $couple->save();  /*Save to generate id*/ 
         }else{
             $couple = $request->session()->get('couple');
             $couple->fill($validatedData);
@@ -99,7 +99,6 @@ class CoupleController extends Controller
     public function createStepThree(Request $request)
     {
         $couple = $request->session()->get('couple');
-  
         return view('couples.create-step-three',compact('couple'));
     }
     
@@ -129,8 +128,7 @@ class CoupleController extends Controller
      */
     public function createStepFour(Request $request)
     {
-        $couple = $request->session()->get('couple');
-        
+        $couple = $request->session()->get('couple'); 
         return view('couples.create-step-four',compact('couple'));
     }
     /**
@@ -142,10 +140,7 @@ class CoupleController extends Controller
     public function postCreateStepFour(Request $request)
     {
         $couple = $request->session()->get('couple');
-        
-        /* //$couple = $request->session()->get('couple')->filter(function($item){if(!$item->couple_id)return true; });
-        dd($couple); */
-        $couple->save();
+        $couple->save(); /*Save rest of the data*/ 
         $request->session()->forget('couple');
   
         return redirect()->route('create.confirm');
@@ -196,20 +191,7 @@ class CoupleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([            
-            'name'=>'required'                   
-        ]);        
-        $couple = Couple::find($couple->id);        
-        $couple->name =  $request->get('name');        $couple->gender1 = $request->get('gender1');        $couple->partner_name = $request->get('partner_name');   $couple->gender2 = $request->get('gender2');        $couple->date = $request->get('date');        
-        $couple->location = $request->get('location');     
-        $couple->budget = $request->get('budget');   
-        $couple->save();        
-
-        //$couple->update($request->all());
-  
-        //return redirect()->route('/step3')
-         //               ->with('success','Product updated successfully');
-        return redirect('/step3')->with('success', 'Couple updated!');    
+        //
     }
 
     /**

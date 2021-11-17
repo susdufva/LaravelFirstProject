@@ -30,24 +30,9 @@ Route::post('/create-step-three', 'CoupleController@postCreateStepThree')->name(
 Route::get('/create-step-four', 'CoupleController@createStepFour')->name('create.step.four');
 Route::post('/create-step-four', 'CoupleController@postCreateStepFour')->name('couples.create.step.four.post');
 
-//Route::post('/create-invite', 'InviteController@postCreateInvite')->name('invites.create.invite.post');
-
 Route::get('/create-confirm', 'CoupleController@createConfirm')->name('create.confirm');
 
-
-Route::get('/step4', function () {
-    return view('invites.create');
-});
-Route::get('/edit', function () {
-    return view('couples.edit');
-});
-
-Route::get('/confirm', function () {
-    return view('couples.confirm');
-});  
 
 Route::resource('contacts', 'ContactController');
 Route::resource('invites', 'InviteController');
 Route::resource('couples', 'CoupleController');
-
-//Route::put('/couples/{id}', [CoupleController::class, 'update']);

@@ -20,12 +20,11 @@
                 @endforeach
                 </ul>
             </div><br/>
-            @endif
-            <!-- 'invites.create.invite.post' -->
+            @endif              <!-- Route to different table -->
             <form method="post" action="{{ route('invites.store')}}">
                 @csrf
                 <div class="form-group">
-                    <label class="label3" for="budget">Partner Email</label>
+                    <label class="label5" for="budget">Partner Email</label>
                     <input type="text" class="input6" name="email"/>
                 </div>
                 <div>
