@@ -47,8 +47,8 @@ class CoupleController extends Controller
         if(empty($request->session()->get('couple'))){
             $couple = new Couple();
             $couple->fill($validatedData);
-            $couple->save();
             $request->session()->put('couple', $couple);
+            $couple->save();
         }else{
             $couple = $request->session()->get('couple');
             $couple->fill($validatedData);
@@ -142,9 +142,9 @@ class CoupleController extends Controller
     public function postCreateStepFour(Request $request)
     {
         $couple = $request->session()->get('couple');
-        //dd($request->all());
-        //$couple = $request->session()->get('couple')->filter(function($item){if(!$item->couple_id)return true; });
-        //dd($couple);
+        
+        /* //$couple = $request->session()->get('couple')->filter(function($item){if(!$item->couple_id)return true; });
+        dd($couple); */
         $couple->save();
         $request->session()->forget('couple');
   

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Invite;
+use App\Models\Couple;
 use Illuminate\Http\Request;
 
 class InviteController extends Controller
@@ -34,8 +35,8 @@ class InviteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)    {        
-        //$couple = $request->session()->get('couple');
-        //$user_id = $couple->id;
+        $couple = $request->session()->get('couple');
+        $user_id = $couple->id;
         //$couple = Couple::find($couple->id);
         
         $request->validate([            
