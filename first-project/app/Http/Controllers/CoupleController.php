@@ -30,7 +30,7 @@ class CoupleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Post Request to store step1 info in session.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -47,8 +47,8 @@ class CoupleController extends Controller
         if(empty($request->session()->get('couple'))){
             $couple = new Couple();
             $couple->fill($validatedData);
-            $request->session()->put('couple', $couple);
             $couple->save();
+            $request->session()->put('couple', $couple);
         }else{
             $couple = $request->session()->get('couple');
             $couple->fill($validatedData);
@@ -102,7 +102,13 @@ class CoupleController extends Controller
   
         return view('couples.create-step-three',compact('couple'));
     }
-  
+    
+    /**
+     * Show the step One Form for creating a new product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function postCreateStepThree(Request $request)
     {
         $validatedData = $request->validate([
@@ -124,7 +130,7 @@ class CoupleController extends Controller
     public function createStepFour(Request $request)
     {
         $couple = $request->session()->get('couple');
-  
+        
         return view('couples.create-step-four',compact('couple'));
     }
     /**
@@ -135,8 +141,10 @@ class CoupleController extends Controller
 
     public function postCreateStepFour(Request $request)
     {
-        
         $couple = $request->session()->get('couple');
+        //dd($request->all());
+        //$couple = $request->session()->get('couple')->filter(function($item){if(!$item->couple_id)return true; });
+        //dd($couple);
         $couple->save();
         $request->session()->forget('couple');
   

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Invite;
-use App\Models\Couple;
 use Illuminate\Http\Request;
 
 class InviteController extends Controller
