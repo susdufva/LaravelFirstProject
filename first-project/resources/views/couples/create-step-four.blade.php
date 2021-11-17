@@ -25,7 +25,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="label5" for="budget">Partner Email</label>
-                    <input type="text" class="input6" name="email"/>
+                    <input type="email" class="input6" name="email"/>
                 </div>
                 <div>
                     <button type="submit" class="invite">invite </button>

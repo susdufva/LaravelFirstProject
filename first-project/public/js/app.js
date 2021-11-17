@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }).then(countries =>{
         let output = "";
         countries.forEach(country =>{
-            output += `<option value=">${country.name}">${country.name} </option>`;
+            output += `<option value="${country.name}">${country.name} </option>`;
         }) 
         select.innerHTML = output;
     }).catch(error => {
