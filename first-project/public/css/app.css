@@ -57,6 +57,7 @@ input{
     border-width: 1px;
     border-style: solid;
     border-color: rgba(187, 187, 187, 0.747);
+    padding: 20px;
 }
 .input1{
     position: absolute;
@@ -195,7 +196,7 @@ select{
     position: absolute;
     right: 20%;
     top: 49%;
-    padding: 5px;
+    padding: 20px;
 }
 .label3{
     position: absolute;
