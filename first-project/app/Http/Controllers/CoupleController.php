@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Couple;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 
 class CoupleController extends Controller
 {
@@ -35,14 +36,9 @@ class CoupleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postCreateStepOne(Request $request)
+    public function postCreateStepOne(StorePostRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',  
-            'gender1' => 'required',           
-            'partner_name' => 'required', 
-            'gender2' => 'required',     
-        ]);
+        $validatedData = $request->validated();
   
         if(empty($request->session()->get('couple'))){
             $couple = new Couple();
