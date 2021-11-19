@@ -14,7 +14,7 @@ class CreateCouplesTable extends Migration
     public function up()
     {
         Schema::create('couples', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->timestamps();
             $table->string('name');
             $table->string('gender1');

@@ -16,7 +16,7 @@ class AppendIsAvailableToCouplesTable extends Migration
         Schema::table('couples', function (Blueprint $table) {
             $table->string('date')->nullable();
             $table->string('location')->nullable();
-            $table->string('budget')->nullable();
+            $table->decimal('budget', 7, 6)->nullable();
         });
     }
 

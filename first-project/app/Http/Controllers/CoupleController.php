@@ -107,8 +107,7 @@ class CoupleController extends Controller
     public function postCreateStepThree(Request $request)
     {
         $validatedData = $request->validate([
-            'budget' => 'required',
-            
+            'budget' => 'required|numeric|regex:/^\d+(\.\d{1,3})?$/'
         ]);
   
         $couple = $request->session()->get('couple');

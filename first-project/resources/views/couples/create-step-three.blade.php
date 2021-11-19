@@ -25,7 +25,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="label5" for="budget">Estimated Budget</label>
-                    <input type="text" class="input5" name="budget"/>
+                    <input type="number" class="input5" name="budget"/>
                 </div>
         
                 <div class="span"> 
