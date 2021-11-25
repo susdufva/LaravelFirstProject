@@ -25,7 +25,10 @@
                 @csrf
                 <div class="form-group">
                     <label class="label5" for="budget">Estimated Budget</label>
-                    <input type="number" class="input5" name="budget"/>
+                    <input type="text" pattern="\d*" class="input5" name="budget"/>
+                    <!-- pattern \d is the expression for a number, 
+                    * means that it accepts more than one of them. -->
+
                 </div>
         
                 <div class="span"> 
